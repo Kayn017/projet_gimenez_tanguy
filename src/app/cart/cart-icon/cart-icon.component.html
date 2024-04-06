@@ -11,16 +11,7 @@
         #template
         let-observer
     >
-        <div *ngIf="quantity | async as quantity">
-            <div *ngIf="quantity > 0">
-                <div *ngFor="let product of items | async">
-                    <div>{{ product.item.name }} x {{ product.quantity }}</div>
-                </div>
-            </div>
-            <div *ngIf="quantity === 0">
-                <div>Le panier est vide</div>
-            </div>
-        </div>
+        <cart-popup />
     </ng-template>
     
 </div>

@@ -1,0 +1,45 @@
+<div *ngIf="quantity | async as quantity">
+    @if(quantity > 0) {
+        <!-- <div>
+            <div *ngFor="let product of items | async">
+                <div>{{ product.item.name }} x {{ product.quantity }}</div>
+            </div>
+        </div> -->
+
+        <table
+            tuiTable
+            [columns]="displayedColumns"
+        >
+            <thead>
+                <tr tuiThGroup>
+                    <th *ngFor="let column of displayedColumns" tuiTh>
+                        {{ column }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody
+                tuiTbody
+                [data]="(items | async) ?? []"
+            >
+                <tr tuiTrGroup *ngFor="let item of items | async">
+                    <td tuiTd>{{ item.item.name }}</td>
+                    <td tuiTd>{{ item.quantity }}</td>
+                    <td tuiTd>{{ item.item.price }}</td>
+                    <td tuiTd>{{ item.item.price * item.quantity }}</td>
+                    <td tuiTd>
+                        <button
+                            tuiButton
+                            size="s"
+                            icon="tuiIconShoppingCart"
+                            (click)="removeItem(item.item)"
+                        ></button>
+                    </td>
+                </tr>
+            </tbody>
+        
+        </table>
+    }
+    @else {
+        <div>Le panier est vide</div>
+    }
+</div>
