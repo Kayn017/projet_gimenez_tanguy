@@ -1,0 +1,14 @@
+<tui-island [hoverable]="true">
+    <p class="tui-island__paragraph">{{ data.category }}</p>
+    <h3 class="tui-island__title">{{ data.name }}</h3>
+    <img class="w-20 h-auto" src="{{ data.img }}" />
+    <p class="tui-island__paragraph">{{ data.description }}</p>
+    <p class="tui-island__paragraph tui-island__paragraph_link">{{ data.price }} €</p>
+    <button
+        tuiButton
+        icon="tuiIconShoppingCart"
+        (click)="addToCart()"
+    >
+        Ajouter au panier
+    </button>
+</tui-island>

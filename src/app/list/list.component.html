@@ -1,0 +1,8 @@
+<div class="max-w-max">
+    <search-bar (searchChange)="getItems($event)" />
+    <tui-scrollbar class="max-w-max">
+        <div class="grid grid-cols-3 gap-4 p-4">
+            <item *ngFor="let item of items" [data]="item" />
+        </div>    
+    </tui-scrollbar>
+</div>
