@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    productsURL: '/assets/mock/products.json'
+    apiURL: 'http://localhost:3000'
 };

@@ -1,0 +1,41 @@
+<div>
+    <button 
+        tuiButton 
+        icon="tuiIconLock"
+        (click)="openLoginPopup(template)"
+    >
+        Login
+    </button>
+</div>
+
+<ng-template #template let-observer>
+    <form 
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+    >
+        <h3 class="text-center text-3xl">Se connecter</h3>
+        <div>
+            <tui-input 
+                formControlName="login"
+                tuiHintContent="login"
+            >
+                Login
+                <input placeholder="admin" tuiTextfield />
+            </tui-input>
+
+            <tui-input-password 
+                formControlName="password"
+                tuiHintContent="password"
+            >
+                Password
+            </tui-input-password>
+
+            <button 
+                tuiButton 
+                type="submit"
+            >
+                Se connecter
+            </button>
+        </div>
+    </form>
+</ng-template>

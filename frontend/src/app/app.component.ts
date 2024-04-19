@@ -1,8 +1,9 @@
 import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
-import { TuiRootModule, TUI_SANITIZER } from "@taiga-ui/core";
+import { TuiRootModule, TUI_SANITIZER, TuiDialogModule } from "@taiga-ui/core";
 import { ListComponent } from "./list/list.component";
 import { Component } from '@angular/core';
 import { CartIconComponent } from "./cart/cart-icon/cart-icon.component";
+import { LoginPopupComponent } from "./login-popup/login-popup.component";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,9 @@ import { CartIconComponent } from "./cart/cart-icon/cart-icon.component";
   imports: [
     TuiRootModule,
     ListComponent,
-    CartIconComponent
+    CartIconComponent,
+    LoginPopupComponent,
+    TuiDialogModule
   ], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
