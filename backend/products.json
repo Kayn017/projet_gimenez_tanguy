@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Claquette",
+        "img": "https://creapills.com/wp-content/uploads/2020/07/lidl-vetements-home-1-5.jpg",
+        "price": 10,
+        "description": "Claquette de qualité",
+        "category": "Chaussure"
+    },
+    {
+        "id": 2,
+        "name": "Tenue de vélo",
+        "img": "https://bobshop.shop-cdn.com/media/image/81/7f/8c/S10108-1_1_1280x1280.jpg",
+        "price": 100,
+        "description": "Tenue de vélo très confortable",
+        "category": "Sport"
+    },
+    {
+        "id": 3,
+        "name": "T-shirt",
+        "img": "https://m.media-amazon.com/images/I/61GPeiWnZMS._AC_SL1500_.jpg",
+        "price": 20,
+        "description": "T-shirt bien coupé",
+        "category": "Vêtement"
+    },
+    {
+        "id": 4,
+        "name": "Pantalon",
+        "img": "https://images.vestiairecollective.com/cdn-cgi/image/q=75,f=auto,/produit/38270271-1_2.jpg",
+        "price": 50,
+        "description": "Pantalon attirant instanément le regard",
+        "category": "Vêtement"
+    },
+    {
+        "id": 5,
+        "name": "Basket",
+        "img": "https://i.ebayimg.com/images/g/Q8IAAOSwvsJja-jQ/s-l1200.webp",
+        "price": 80,
+        "description": "Chaussure de sport idéale pour le running et le style",
+        "category": "Chaussure"
+    },
+    {
+        "id": 6,
+        "name": "Veste",
+        "img": "https://www.lidl.fr/assets/gcp5d532610e3c543949efbe0441df3d52d.jpeg",
+        "price": 150,
+        "description": "Le survet préféré des sportifs",
+        "category": "Vêtement"
+    },
+    {
+        "id": 7,
+        "name": "Chaussette",
+        "img": "https://i.ebayimg.com/images/g/8R8AAOSwfVdjmsOV/s-l1200.webp",
+        "price": 5,
+        "description": "Chaussette qui tient chaud au pied comme au coeur 💖",
+        "category": "Chaussure"
+    },
+    {
+        "id": 8,
+        "name": "Short",
+        "img": "https://images.vestiairecollective.com/cdn-cgi/image/q=75,f=auto,/produit/23386276-1_2.jpg",
+        "price": 30,
+        "description": "Short de bain irrésistible pour les vacances",
+        "category": "Sport"
+    },
+    {
+        "id": 9,
+        "name": "Bob",
+        "img": "https://www.lidl.fr/assets/gcpb5e9580a84b74a8993cc8e38d1054ee1.jpeg",
+        "price": 20,
+        "description": "Toujours drippé avec ce magnifique bob",
+        "category": "Vêtement"
+    }
+]
