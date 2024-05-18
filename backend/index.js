@@ -44,7 +44,17 @@ server.post("/login", async (request, reply) => {
 });
 
 server.get("/products", async (request, reply) => {
-    return products;
+    const { q } = request.query;
+
+    if(!q) {
+        return products;
+    }
+
+    return products.filter(p => {
+        return p.name.toLowerCase().includes(q.toLowerCase()) ||
+            p.description.toLowerCase().includes(q.toLowerCase()) ||
+            p.category.toLowerCase().includes(q.toLowerCase());
+    });
 });
 
 const port = process.env.PORT || 3000;

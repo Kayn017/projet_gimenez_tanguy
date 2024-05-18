@@ -30,17 +30,8 @@ export class ListComponent {
   }
 
   getItems(filter?: string) {
-    this.livlService.getLidlItems().subscribe((result) => {
-      this.items = result.filter((item) => {
-        if (filter) {
-          return (
-            item.name.toLowerCase().includes(filter.toLowerCase()) ||
-            item.description.toLowerCase().includes(filter.toLowerCase()) ||
-            item.category.toLowerCase().includes(filter.toLowerCase())
-          );
-        }
-        return true;
-      });
+    this.livlService.getLidlItems(filter).subscribe((result) => {
+      this.items = result;
     });
   }
 }

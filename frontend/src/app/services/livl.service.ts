@@ -12,7 +12,7 @@ export class LivlService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getLidlItems(): Observable<LivlItem[]> {
-    return this.httpClient.get<LivlItem[]>(environment.apiURL + '/products');
+  getLidlItems(filter?: string): Observable<LivlItem[]> {
+    return this.httpClient.get<LivlItem[]>(environment.apiURL + '/products' + (filter ? '?q=' + filter : ''));
   }
 }
