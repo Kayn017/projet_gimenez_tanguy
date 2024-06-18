@@ -2,26 +2,25 @@
     <button 
         tuiButton 
         icon="tuiIconLock"
-        (click)="openLoginPopup(template)"
+        (click)="openRegisterPopup(template)"
         *ngIf="!loggedIn"
     >
-        Login
+        Register
     </button>
 </div>
 
 <ng-template #template let-observer>
     <form 
-        [formGroup]="loginForm"
-        (ngSubmit)="login()"
-        *ngIf="!loggedIn"
+        [formGroup]="registerForm"
+        (ngSubmit)="register()"
     >
-        <h3 class="text-center text-3xl">Se connecter</h3>
+        <h3 class="text-center text-3xl">S'enregistrer</h3>
         <div>
             <tui-input 
-                formControlName="login"
-                tuiHintContent="login"
+                formControlName="username"
+                tuiHintContent="username"
             >
-                Login
+                Username
                 <input tuiTextfield />
             </tui-input>
 
@@ -32,15 +31,19 @@
                 Password
             </tui-input-password>
 
+            <tui-input-password 
+                formControlName="confirmPassword"
+                tuiHintContent="confirmPassword"
+            >
+                Confirm Password
+            </tui-input-password>
+
             <button 
                 tuiButton 
                 type="submit"
             >
-                Se connecter
+                S'inscrirer
             </button>
         </div>
     </form>
-    <div *ngIf="loggedIn">
-        Vous êtes connecté !
-    </div>
 </ng-template>

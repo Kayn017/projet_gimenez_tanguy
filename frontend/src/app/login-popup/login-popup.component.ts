@@ -4,6 +4,7 @@ import { TuiButtonModule, TuiDialogContext, TuiDialogService } from '@taiga-ui/c
 import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { AuthService } from '../services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'login-popup',
@@ -12,12 +13,15 @@ import { AuthService } from '../services/auth.service';
     TuiButtonModule,
     TuiInputModule,
     TuiInputPasswordModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './login-popup.component.html',
   styleUrl: './login-popup.component.scss'
 })
 export class LoginPopupComponent {
+  loggedIn = false;
+  
   readonly loginForm = new FormGroup({
     login: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
@@ -41,6 +45,8 @@ export class LoginPopupComponent {
       throw new Error('Password is required')
     }
     
-    this.authService.login(this.loginForm.value.login, this.loginForm.value.password).subscribe();
+    this.authService.login(this.loginForm.value.login, this.loginForm.value.password).subscribe((() => {
+      this.loggedIn = true;
+    }));
   }
 }

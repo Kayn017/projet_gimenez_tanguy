@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { environment } from '../../environments/environment';
 
-export type LivlItem = { id: number; name: string; img: string; price: number; description: string; category: string; };
+export type LivlCategory = { id: number; name: string; };
+export type LivlItem = { id: number; name: string; img: string; price: number; description: string; category: LivlCategory; };
 
 @Injectable({
   providedIn: 'root'

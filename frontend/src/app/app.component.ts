@@ -4,6 +4,7 @@ import { ListComponent } from "./list/list.component";
 import { Component } from '@angular/core';
 import { CartIconComponent } from "./cart/cart-icon/cart-icon.component";
 import { LoginPopupComponent } from "./login-popup/login-popup.component";
+import { RegisterPopupComponent } from "./register-popup/register-popup.component";
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { LoginPopupComponent } from "./login-popup/login-popup.component";
     ListComponent,
     CartIconComponent,
     LoginPopupComponent,
+    RegisterPopupComponent,
     TuiDialogModule
   ], 
   templateUrl: './app.component.html',
