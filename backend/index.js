@@ -1,10 +1,9 @@
 require("dotenv").config();
 
 const Fastify = require("fastify");
-const products = require("./products.json");
-
 const jwt = require("@fastify/jwt");
 const cors = require("@fastify/cors");
+const fastifybcrypt = require("fastify-bcrypt");
 
 const tokenSecret = process.env.TOKEN_SECRET;
 
@@ -17,45 +16,10 @@ const server = Fastify({ logger: true });
 
 server.register(jwt, { secret: tokenSecret });
 server.register(cors, { origin: "*" }); // TODO : mettre l'adresse du front sur localhost et render
+server.register(fastifybcrypt);
 
-server.get("/", async (request, reply) => {    
-    return { hello: "world" };
-});
-
-server.get("/protected", async (request, reply) => {
-    try {
-        await request.jwtVerify();
-        return { protected: "data" };
-    } catch (err) {
-        reply.code(401).send({ message: "Unauthorized" });
-    }
-});
-
-server.post("/login", async (request, reply) => {
-    const { username, password } = request.body;
-
-    // Simulate a login
-    if(username === "admin" && password === "admin") {
-        const token = server.jwt.sign({ username });
-        return { token };
-    }
-
-    reply.code(401).send({ message: "Unauthorized" });
-});
-
-server.get("/products", async (request, reply) => {
-    const { q } = request.query;
-
-    if(!q) {
-        return products;
-    }
-
-    return products.filter(p => {
-        return p.name.toLowerCase().includes(q.toLowerCase()) ||
-            p.description.toLowerCase().includes(q.toLowerCase()) ||
-            p.category.toLowerCase().includes(q.toLowerCase());
-    });
-});
+// init routes
+require("./routes")(server);
 
 const port = process.env.PORT || 3000;
 
