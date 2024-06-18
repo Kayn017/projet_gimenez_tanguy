@@ -81,6 +81,11 @@ module.exports = function(server) {
                         description: {
                             [Op.iLike]: `%${q}%`
                         }
+                    },
+                    {
+                        "$category.name$": {
+                            [Op.iLike]: `%${q}%`
+                        }
                     }
                 ]
             },
