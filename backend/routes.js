@@ -14,7 +14,11 @@ module.exports = function(server) {
         try {
             await request.jwtVerify();
 
-            return await User.findByPk(request.user.id);
+            return await User.findByPk(request.user.id, {
+                attributes: {
+                    exclude: ["password"]
+                }
+            });
         } catch (err) {
             reply.code(401).send({ message: "Unauthorized" });
         }
@@ -92,12 +96,6 @@ module.exports = function(server) {
             include: [{
                 model: Category,
                 as: "category",
-                where: {
-                    name: {
-                        [Op.iLike]: `%${q}%`
-                    }
-                },
-                required: false
             }]
         });
     });
