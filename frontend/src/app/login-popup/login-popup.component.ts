@@ -5,6 +5,7 @@ import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'login-popup',
@@ -19,9 +20,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login-popup.component.html',
   styleUrl: './login-popup.component.scss'
 })
-export class LoginPopupComponent {
-  loggedIn = false;
-  
+export class LoginPopupComponent {  
   readonly loginForm = new FormGroup({
     login: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
@@ -29,7 +28,8 @@ export class LoginPopupComponent {
 
   constructor(
     @Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
-    private authService: AuthService
+    private authService: AuthService,
+    private tokenService: TokenService
   ) { }
 
   openLoginPopup(content: PolymorpheusContent<TuiDialogContext>) {
@@ -45,8 +45,14 @@ export class LoginPopupComponent {
       throw new Error('Password is required')
     }
     
-    this.authService.login(this.loginForm.value.login, this.loginForm.value.password).subscribe((() => {
-      this.loggedIn = true;
-    }));
+    this.authService.login(this.loginForm.value.login, this.loginForm.value.password).subscribe();
+  }
+
+  get loggedIn(): boolean {
+    return this.tokenService.isLoggedIn();
+  }
+
+  logout() {
+    this.tokenService.setToken(null);
   }
 }

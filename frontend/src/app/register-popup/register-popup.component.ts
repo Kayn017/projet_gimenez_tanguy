@@ -5,6 +5,7 @@ import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
 import { AuthService } from '../services/auth.service';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { TokenService } from '../services/token.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'register-popup',
@@ -13,7 +14,8 @@ import { TokenService } from '../services/token.service';
     TuiButtonModule,
     TuiInputModule,
     TuiInputPasswordModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './register-popup.component.html',
   styleUrl: './register-popup.component.scss'
@@ -51,7 +53,7 @@ export class RegisterPopupComponent {
     this.authService.register(this.registerForm.value.username, this.registerForm.value.password).subscribe();
   } 
 
-  get isLoggedIn(): boolean {
+  get loggedIn(): boolean {
     return this.tokenService.isLoggedIn();
   }
 }

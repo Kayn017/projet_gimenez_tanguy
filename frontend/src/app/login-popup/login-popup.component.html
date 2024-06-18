@@ -7,6 +7,14 @@
     >
         Login
     </button>
+    <button 
+        tuiButton 
+        icon="tuiIconLock"
+        (click)="logout()"
+        *ngIf="loggedIn"
+    >
+        Logout
+    </button>
 </div>
 
 <ng-template #template let-observer>
